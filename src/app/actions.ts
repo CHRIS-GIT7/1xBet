@@ -3,7 +3,7 @@
 import { cookies, headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { and, eq } from "drizzle-orm";
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { tickets } from "@/db/schema";
 import { ticketSchema, toFieldErrors } from "@/lib/validation";
 import { generateReference, REFERENCE_PATTERN } from "@/lib/reference";
@@ -65,7 +65,7 @@ export async function submitTicket(_prev: SubmitState, formData: FormData): Prom
   for (let attempt = 0; attempt < 3; attempt++) {
     const reference = generateReference();
     try {
-      await db.insert(tickets).values({
+      await getDb().insert(tickets).values({
         reference,
         name: data.name,
         email: data.email,
@@ -129,7 +129,7 @@ export async function trackTicket(_prev: TrackState, formData: FormData): Promis
     return { ok: false, error: "That tracking ID doesn't look right — it should look like 1XB-2F8K-DM4Z." };
   }
 
-  const [row] = await db
+  const [row] = await getDb()
     .select()
     .from(tickets)
     .where(and(eq(tickets.reference, reference), eq(tickets.email, email)))
@@ -199,7 +199,7 @@ export async function updateTicketStatus(
   if (!TICKET_STATUSES.includes(status)) {
     return { ok: false, error: "Unknown status." };
   }
-  await db.update(tickets).set({ status, updatedAt: new Date() }).where(eq(tickets.id, id));
+  await getDb().update(tickets).set({ status, updatedAt: new Date() }).where(eq(tickets.id, id));
   revalidatePath("/admin");
   return { ok: true };
 }
@@ -215,7 +215,7 @@ export async function saveTicketUpdate(
   const reply = publicReply.trim().slice(0, 4000);
   const note = adminNote.trim().slice(0, 4000);
   const now = new Date();
-  await db
+  await getDb()
     .update(tickets)
     .set({
       publicReply: reply || null,

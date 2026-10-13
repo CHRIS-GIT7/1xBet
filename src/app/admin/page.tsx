@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { desc } from "drizzle-orm";
-import { db } from "@/db";
+import { getDb } from "@/db";
 import { tickets } from "@/db/schema";
 import { isAdminAuthed, isDemoAdminAccess } from "@/lib/admin";
 import AdminLogin from "@/components/admin-login";
@@ -19,7 +19,7 @@ export default async function AdminPage() {
     return <AdminLogin demo={isDemoAdminAccess()} />;
   }
 
-  const rows = await db.select().from(tickets).orderBy(desc(tickets.createdAt)).limit(500);
+  const rows = await getDb().select().from(tickets).orderBy(desc(tickets.createdAt)).limit(500);
 
   const data: AdminTicket[] = rows.map((r) => ({
     id: r.id,
