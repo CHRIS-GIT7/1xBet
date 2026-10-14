@@ -6,7 +6,7 @@ const STEPS = [
   {
     icon: PenLine,
     title: "Tell us what happened",
-    text: "A short, structured form — about two minutes of your time.",
+    text: "A short, structured form about two minutes of your time.",
   },
   {
     icon: FileSearch,
@@ -16,7 +16,7 @@ const STEPS = [
   {
     icon: BellRing,
     title: "Track progress anytime",
-    text: "Check updates with your tracking ID — no chasing through DMs.",
+    text: "Check updates with your tracking ID no chasing through DMs.",
   },
 ];
 
