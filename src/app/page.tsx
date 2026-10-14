@@ -11,12 +11,12 @@ const STEPS = [
   {
     icon: FileSearch,
     title: "We log and assign your case",
-    text: "You get a unique tracking ID on the spot, and an agent picks it up.",
+    text: "An agent will contact you to handle your request.",
   },
   {
     icon: BellRing,
     title: "Track progress anytime",
-    text: "Check updates with your tracking ID no chasing through DMs.",
+    text: "We'll get this fixed and contact you right away.",
   },
 ];
 
