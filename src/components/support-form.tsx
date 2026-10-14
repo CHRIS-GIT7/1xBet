@@ -133,7 +133,7 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
       </div>
 
       <div className="space-y-9">
-        <Section index="01" title="Tell us who you are" subtitle="So we can find your account and reach you">
+        <Section index="01" title="Tell us who you are" subtitle="So we can locate your account and contact you">
           <div className="grid gap-5 sm:grid-cols-2">
             <FieldShell label="Full name" htmlFor="name" error={err.name}>
               <IconInput icon={User}>
