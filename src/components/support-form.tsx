@@ -217,7 +217,7 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
                     onChange={() => setType("complaint")}
                   />
                   <AlertTriangle className="h-4 w-4" />
-                  <span>I want to complain</span>
+                  <span>I want to make a complaint</span>
                 </label>
                 <label className={`seg ${type === "enquiry" ? "seg-active" : ""}`}>
                   <input

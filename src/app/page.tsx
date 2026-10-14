@@ -15,7 +15,7 @@ const STEPS = [
   },
   {
     icon: BellRing,
-    title: "Track progress anytime",
+    title: "We will resolve and get back to you",
     text: "We'll get this fixed and contact you right away.",
   },
 ];
