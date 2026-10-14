@@ -81,8 +81,7 @@ export default function Home() {
               <div className="flex items-start gap-3 p-4">
                 <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
                 <p className="text-xs leading-relaxed text-emerald-100/75">
-                  <span className="font-semibold text-emerald-200">Zero trust on DMs.</span> We will
-                  never ask for your account password, PIN, OTP or full card details here, on
+                   We will never ask for your account password, PIN, OTP or full card details here, on
                   Instagram, or anywhere else.
                 </p>
               </div>
