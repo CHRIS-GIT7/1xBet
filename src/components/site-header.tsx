@@ -23,7 +23,7 @@ export default function SiteHeader() {
         <nav className="flex items-center gap-1.5 sm:gap-2">
           
           <Link
-            href="/admin"
+            href=""
             className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-medium text-slate-200 transition hover:border-brand-400/40 hover:text-white"
           >
             <Headset className="h-4 w-4 text-brand-400" />
