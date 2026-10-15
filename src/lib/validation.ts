@@ -89,6 +89,9 @@ export const ticketSchema = z.object({
   consent: z
     .string()
     .refine((v) => v === "on", "Please accept the privacy notice so we are allowed to contact you."),
+  ageConfirmation: z
+    .string()
+    .refine((v) => v === "on", "Please confirm that you are 18 or older."),
 });
 
 export type TicketInput = z.infer<typeof ticketSchema>;
@@ -103,6 +106,8 @@ export function toFieldErrors(error: z.ZodError): Record<string, string> {
       map[key] =
         key === "consent"
           ? "Please accept the privacy notice so we are allowed to contact you."
+          : key === "ageConfirmation"
+            ? "Please confirm that you are 18 or older."
           : "Please choose an option.";
     } else {
       map[key] = issue.message;

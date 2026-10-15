@@ -53,6 +53,7 @@ export async function submitTicket(_prev: SubmitState, formData: FormData): Prom
     message: formData.get("message")?.toString() ?? "",
     preferredContact: formData.get("preferredContact")?.toString() ?? "email",
     consent: formData.get("consent")?.toString() ?? "",
+    ageConfirmation: formData.get("ageConfirmation")?.toString() ?? "",
   };
 
   const parsed = ticketSchema.safeParse(raw);

@@ -92,6 +92,7 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
   const [category, setCategory] = useState("");
   const [contact, setContact] = useState("email");
   const [consent, setConsent] = useState(false);
+  const [ageConfirmation, setAgeConfirmation] = useState(false);
 
   const set = (key: keyof typeof values, value: string) => setValues((v) => ({ ...v, [key]: value }));
 
@@ -133,7 +134,7 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
       </div>
 
       <div className="space-y-9">
-        <Section index="01" title="Tell us who you are" subtitle="So we can locate your account and contact you">
+        <Section index="01" title="TELL US WHO YOU ARE" subtitle="So we can locate your account and contact you">
           <div className="grid gap-5 sm:grid-cols-2">
             <FieldShell label="Full name" htmlFor="name" error={err.name}>
               <IconInput icon={User}>
@@ -202,7 +203,7 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
           </div>
         </Section>
 
-        <Section index="02" title="What happened?" subtitle="The more specific you are, the faster we can fix it">
+        <Section index="02" title="HOW CAN WE HELP?" subtitle="The more specific you are, the faster we can help you">
           <div className="space-y-5">
             <div>
               <span className="label">Request type</span>
@@ -351,13 +352,37 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
                 >
                   Privacy Policy
                 </a>
-                . I confirm that I am 18 or older.
               </span>
             </label>
             {err.consent && (
               <p className="field-error">
                 <AlertTriangle className="mt-px h-3.5 w-3.5 shrink-0" />
                 {err.consent}
+              </p>
+            )}
+
+            <label
+              className={`flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition ${
+                err.ageConfirmation
+                  ? "border-rose-400/40 bg-rose-400/[0.04]"
+                  : "border-white/10 bg-white/[0.03] hover:border-white/20"
+              }`}
+            >
+              <input
+                type="checkbox"
+                name="ageConfirmation"
+                className="mt-0.5 h-4 w-4 shrink-0 accent-brand-500"
+                checked={ageConfirmation}
+                onChange={(e) => setAgeConfirmation(e.target.checked)}
+              />
+              <span className="text-xs leading-relaxed text-slate-400">
+                I confirm that I am 18 or older.
+              </span>
+            </label>
+            {err.ageConfirmation && (
+              <p className="field-error">
+                <AlertTriangle className="mt-px h-3.5 w-3.5 shrink-0" />
+                {err.ageConfirmation}
               </p>
             )}
 
