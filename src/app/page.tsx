@@ -45,7 +45,7 @@ export default function Home() {
                 </span>               
               </span> */}
 
-              <span className="brand-badge text-sm">1xBET</span>
+              <span className="brand-badge text-sm">1xBet</span>
 
               <h1 className="font-display mt-6 text-4xl leading-[1.04] font-extrabold tracking-tight text-white sm:text-5xl xl:text-[3rem]">
                 Get help. Get answers.{" "} Get back in the game.

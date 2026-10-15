@@ -165,7 +165,7 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
                 />
               </IconInput>
             </FieldShell>
-            <FieldShell label="Phone number" htmlFor="phone" optional error={err.phone}>
+            <FieldShell label="Phone number" htmlFor="phone" error={err.phone}>
               <IconInput icon={Phone}>
                 <input
                   id="phone"
@@ -183,7 +183,6 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
             <FieldShell
               label="1xBet account ID"
               htmlFor="accountId"
-              optional
               error={err.accountId}
               hint="Numbers only — find it in your profile. Never your password."
             >
@@ -343,8 +342,16 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
               />
               <span className="text-xs leading-relaxed text-slate-400">
                 I agree that 1xBet Nigeria may store these details and contact me about this
-                request, in line with the Nigeria Data Protection Act. I confirm that I am 18 or
-                older.
+                request, in line with the Nigeria Data Protection Act and the{" "}
+                <a
+                  href="https://1xbet.ng/en/information/rules/privacy_policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-300 underline underline-offset-2 hover:text-brand-200"
+                >
+                  Privacy Policy
+                </a>
+                . I confirm that I am 18 or older.
               </span>
             </label>
             {err.consent && (
@@ -385,6 +392,17 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
             </div>
           </div>
         </Section>
+      </div>
+
+      <div className="mt-8 border-t border-white/10 pt-5">
+        <a
+          href="https://1xbet.ng/en"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-sky-800 transition hover:text-sky-600"
+        >
+          Official 1xBet Nigeria website
+        </a>
       </div>
     </form>
   );
