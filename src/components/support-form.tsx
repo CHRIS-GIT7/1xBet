@@ -114,7 +114,7 @@ function FormCore({ onSuccess }: { onSuccess: (reference: string) => void }) {
       <div className="mb-8 flex items-start justify-between gap-4">
         <div>
           <h2 className="font-display text-2xl font-bold text-white">
-            Submit a complaint or enquiry
+            SUBMIT A COMPLAINT OR ENQUIRY
           </h2>
           <p className="mt-1.5 text-sm text-slate-400">
             Takes about two minutes. Fields marked * are required.
